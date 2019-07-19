@@ -2,8 +2,8 @@ import React from "react";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Home from "./Component/Home";
-import LastTenA from "./Component/LastTenA";
-import LastTenE from "./Component/LastTenE";
+import TodayAsteroids from "./Component/TodayAsteroids";
+import TodayEarthquakes from "./Component/TodayEarthquakes";
 
 function App() {
   return (
@@ -39,13 +39,13 @@ function App() {
                 </Link>
               </li>
               <li>
-                <Link to={"/Last10-A"} className="nav-link">
-                  Contact
+                <Link to={"/TodayAsteroids"} className="nav-link">
+                  Asteroids
                 </Link>
               </li>
               <li>
-                <Link to={"/Last10-E"} className="nav-link">
-                  Form
+                <Link to={"/TodayEarthquakes"} className="nav-link">
+                  Earthquakes
                 </Link>
               </li>
             </ul>
@@ -54,8 +54,8 @@ function App() {
 
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/Last10-A" component={LastTenA} />
-          <Route path="/Last10-E" component={LastTenE} />
+          <Route path="/TodayAsteroids" component={TodayAsteroids} />
+          <Route path="/TodayEarthquakes" component={TodayEarthquakes} />
         </Switch>
       </div>
     </Router>

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import TodayAsteroids from "./TodayAsteroids";
+import TodayEarthquakes from "./TodayEarthquakes";
 
 class Home extends Component {
   state = {};
@@ -7,7 +8,9 @@ class Home extends Component {
     return (
       <div>
         <h1>Home Component</h1>
-        <TodayAsteroids></TodayAsteroids>
+{/*        <TodayAsteroids></TodayAsteroids>*/}
+        <TodayEarthquakes></TodayEarthquakes> 
+
       </div>
     );
   }
