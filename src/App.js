@@ -10,7 +10,7 @@ function App() {
     <Router>
       <div>
         <nav
-          className="navbar navbar-expand-lg navbar-light bg-primary"
+          className="navbar navbar-expand-lg navbar-light bg-primary navbar-fixed-top"
           style={{
             fontSize: "1.25em",
             boxShadow: "0px 4px 8px gray"

@@ -6,7 +6,7 @@ class TodayEarthquakes extends Component {
   state = {
     todayEarthquakes: [],
     todayEarthquakesCount: 0,
-    fecha: "2019-07-17"
+    fecha: "2019-07-10"
   };
 
   componentDidMount() {
@@ -50,9 +50,10 @@ class TodayEarthquakes extends Component {
           return (
             <Earthquake
             key={value.id}
+            depth={value.geometry.coordinates[2]}
             id={value.properties.id}
             alert={value.properties.alert}
-            detail={value.properties.detail}
+            detail={value.properties.url}
             felt={value.properties.felt}
             mag={value.properties.mag}
             magType={value.properties.magType}

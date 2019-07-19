@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Moment from "moment";
 import Axios from "axios";
 import Asteroid from "./Asteroid";
 import { throwStatement } from "@babel/types";
@@ -11,7 +12,7 @@ class TodayAsteroids extends Component {
     todayAsteroids: [],
     dateAsteroids: [],
     oneAsteroid: {},
-    date: "2019-07-01"
+    date: "2019-07-10"
   };
 
   componentDidMount() {
@@ -26,7 +27,6 @@ class TodayAsteroids extends Component {
         console.log(res.data);
         console.log(res.data.near_earth_objects);
         console.log(res.data.near_earth_objects[this.state.date]);
-
         this.setState({
           todayCount: res.data.near_earth_objects[this.state.date].length,
           todayAsteroids: res.data,
@@ -60,12 +60,14 @@ class TodayAsteroids extends Component {
     return (
       <React.Fragment>
         {this.renderAsteroides()}
+        {this.state.date}
         {/*<AnimateNumber number={10} speed={100} /> */}
         {this.state.dateAsteroids.map(value => {
           return (
             <Asteroid
               key={value.id}
               id={value.id}
+              
               name={value.name}
               hazarous={value.is_potentially_hazardous_asteroid}
               max_diameter_km={
