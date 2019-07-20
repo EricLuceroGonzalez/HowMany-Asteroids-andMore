@@ -5,14 +5,37 @@ import Earthquake from "./Earthquake";
 class TodayEarthquakes extends Component {
   state = {
     todayEarthquakes: [],
-    todayEarthquakesCount: 0,
-    fecha: "2019-07-10"
+    todayEarthquakesCount: 0
   };
+
+  componentWillMount() {
+    if (new Date().getMonth() < 9) {
+      this.setState({
+        date:
+          new Date().getFullYear() +
+          "-" +
+          "0" +
+          (new Date().getMonth() + 1) +
+          "-" +
+          new Date().getDate()
+      });
+    } else {
+      this.setState({
+        date:
+          new Date().getFullYear() +
+          "-" +
+          +
+          (new Date().getMonth() + 1) +
+          "-" +
+          new Date().getDate()
+      });
+    }
+  }
 
   componentDidMount() {
     Axios.get(
       `https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=${
-        this.state.fecha
+        this.state.date
       }&minmagnitude=5`
     )
       .then(res => {

@@ -97,7 +97,7 @@ class Earthquake extends Component {
         </Container>
         <Container>
           <Badge>
-            <a href={this.state.detail} style={{color: 'white'}}> More info</a>
+            <a href={this.state.detail}target="_blank" style={{color: 'white'}}> More info</a>
           </Badge>
         </Container>
         {/**<Moment format="YYYY/MM/DD">{this.state.time}</Moment> */}

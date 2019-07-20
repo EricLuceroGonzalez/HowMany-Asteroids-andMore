@@ -16,8 +16,12 @@ function App() {
             boxShadow: "0px 4px 8px gray"
           }}
         >
-          <span className="navbar-brand" href="#">
-            The Navbar Component
+          <span className="navbar-brand" 
+          style={{
+            color: 'white',
+            fontStyle:'bold'
+          }}>
+            How Many?
           </span>
           <button
             className="navbar-toggler"

@@ -11,11 +11,36 @@ class TodayAsteroids extends Component {
     asteroidCount: 0,
     todayAsteroids: [],
     dateAsteroids: [],
-    oneAsteroid: {},
-    date: "2019-07-10"
+    oneAsteroid: {}
   };
 
+  componentWillMount() {
+    if (new Date().getMonth() < 9) {
+      this.setState({
+        date:
+          new Date().getFullYear() +
+          "-" +
+          "0" +
+          (new Date().getMonth() + 1) +
+          "-" +
+          new Date().getDate()
+      });
+    } else {
+      this.setState({
+        date:
+          new Date().getFullYear() +
+          "-" +
+          +
+          (new Date().getMonth() + 1) +
+          "-" +
+          new Date().getDate()
+      });
+    }
+  }
+
   componentDidMount() {
+    console.log(this.state.date);
+    
     Axios.get(
       `https://api.nasa.gov/neo/rest/v1/feed?start_date=${
         this.state.date
@@ -67,7 +92,6 @@ class TodayAsteroids extends Component {
             <Asteroid
               key={value.id}
               id={value.id}
-              
               name={value.name}
               hazarous={value.is_potentially_hazardous_asteroid}
               max_diameter_km={
@@ -90,6 +114,7 @@ class TodayAsteroids extends Component {
                 value.close_approach_data["0"].relative_velocity
                   .kilometers_per_second
               }
+              url={value.nasa_jpl_url}
             />
           );
         })}
